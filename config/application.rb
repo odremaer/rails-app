@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module TestGuru
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    VERSION = '1.0.0'.freeze
     config.load_defaults 6.1
     config.time_zone = 'Vladivostok'
     config.i18n.locale = :ru
