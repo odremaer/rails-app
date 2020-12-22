@@ -26,7 +26,7 @@ Things you may want to cover:
   * Admin
   * User
   * Test
-  * TestCategory
+  * Category
   * Question
   * Answer
-  * ResultsKeeper
+  * Results
