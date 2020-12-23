@@ -2,14 +2,12 @@ require_relative "boot"
 
 require "rails/all"
 
-require './config/initializers/version'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 module TestGuru
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    VERSION = VERSION
     config.load_defaults 6.1
     config.time_zone = 'Vladivostok'
     config.i18n.locale = :ru
