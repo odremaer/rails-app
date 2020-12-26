@@ -6,6 +6,7 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+  > ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-linux]
 
 * System dependencies
 
@@ -21,4 +22,11 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Models that will be added in not that far future:
+  * Admin
+  * User
+  * Test
+  * Category
+  * Question
+  * Answer
+  * Results
