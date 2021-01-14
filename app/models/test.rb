@@ -1,6 +1,8 @@
 class Test < ApplicationRecord
+  belongs_to :category
   def self.order_by_category(title)
-    category_id = Category.where("title = :title", title: title)[0].id
-    Test.where("category_id = :category_id", category_id: category_id).order(id: :desc)
+    result = []
+    Test.joins(:category).where("categories.title = :title", title: title).order(id: :desc).select(:title).each { |cur_test| result << cur_test.title }
+    result
   end
 end
