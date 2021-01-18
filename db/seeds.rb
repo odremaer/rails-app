@@ -7,24 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 def create_qna(test)
-  question = Question.create!(body: "vopros po html", test_id: test.id)
-  Answer.create!(answer: "otvet na #{question.id} vopros po html", question_id: question.id)
-  question = Question.create!(body: "vopros po ruby", test_id: test.id)
-  Answer.create!(answer: "otvet na #{question.id} vopros po ruby", question_id: question.id)
+  question = Question.create!(body: "Вопрос по HTML", test_id: test.id)
+  Answer.create!(answer: "Ответ на #{question.id} вопрос по HTML", question_id: question.id)
+  question = Question.create!(body: "Вопрос по Ruby", test_id: test.id)
+  Answer.create!(answer: "Ответ на #{question.id} вопрос по Ruby", question_id: question.id)
 end
 
-category = Category.create!(title: "beginner")
-user = User.create!(name: "john", password: "qwe")
-test = Test.create!(title: "Ruby", category_id: category.id, user_id: user.id)
-create_qna(test)
-Result.create!(user_id: user.id, test_id:test.id)
+first_user = User.create!(name: "john", password: "qwe")
+second_user = User.create!(name: "paul", password: "123")
 
-test = Test.create!(title: "Rails", category_id: category.id, user_id: user.id)
-create_qna(test)
-Result.create!(user_id: user.id, test_id:test.id)
+first_category = Category.create!(title: "beginner")
+second_category = Category.create!(title: "intermediate")
 
-category = Category.create!(title: "intermediate")
-user = User.create!(name: "paul", password: "123")
-test = Test.create!(title: "HTML", level: 1, category_id: category.id, user_id: user.id)
-create_qna(test)
-Result.create!(user_id: user.id, test_id:test.id)
+
+first_test = Test.create!(title: "Ruby", category_id: first_category.id, user_id: first_user.id)
+second_test = Test.create!(title: "Rails", category_id: first_category.id, user_id: first_user.id)
+third_test = Test.create!(title: "HTML", level: 1, category_id: second_category.id, user_id: second_user.id)
+
+create_qna(first_test)
+create_qna(second_test)
+create_qna(third_test)
+
+Result.create!(user_id: first_user.id, test_id: first_test.id)
+Result.create!(user_id: first_user.id, test_id: second_test.id)
+Result.create!(user_id: second_user.id, test_id: third_test.id)
