@@ -5,13 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Category.create(title: "beginner")
-Category.create(title: "intermediate")
-User.create(name: "john", password: "qwe")
-Test.create(title: "Ruby", category_id: 1, user_id: 1)
-Test.create(title: "Rails", level: 1, category_id: 1, user_id: 1)
-Test.create(title: "HTML", level: 2, category_id: 1, user_id: 1)
-Question.create(body: "vopros po ruby 1", test_id: 1)
-Question.create(body: "vopros po ruby 2", test_id: 1)
-Answer.create(answer: "otvet na 1 vopros po ruby", question_id: 1)
-Answer.create(answer: "otvet na 2 vopros po ruby", question_id: 2)
+
+def create_qna(test)
+  question = Question.create!(body: "vopros po html", test_id: test.id)
+  Answer.create!(answer: "otvet na #{question.id} vopros po html", question_id: question.id)
+  question = Question.create!(body: "vopros po ruby", test_id: test.id)
+  Answer.create!(answer: "otvet na #{question.id} vopros po ruby", question_id: question.id)
+end
+
+category = Category.create!(title: "beginner")
+user = User.create!(name: "john", password: "qwe")
+test = Test.create!(title: "Ruby", category_id: category.id, user_id: user.id)
+create_qna(test)
+Result.create!(user_id: user.id, test_id:test.id)
+
+test = Test.create!(title: "Rails", category_id: category.id, user_id: user.id)
+create_qna(test)
+Result.create!(user_id: user.id, test_id:test.id)
+
+category = Category.create!(title: "intermediate")
+user = User.create!(name: "paul", password: "123")
+test = Test.create!(title: "HTML", level: 1, category_id: category.id, user_id: user.id)
+create_qna(test)
+Result.create!(user_id: user.id, test_id:test.id)
