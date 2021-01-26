@@ -43,7 +43,6 @@ Answer.create!([
   {answer: "Добавляет элементы в начало массива", question: questions[2], correct: true},
   {answer: "Добавляет элементы в конец массива", question: questions[2]},
   {answer: "Очищает массив", question: questions[2]}
-
 ])
 
 #Rails
@@ -68,8 +67,6 @@ Answer.create!([
 ])
 
 #HTML
-
-
 questions = Question.create!([
   {body: "Какой тег нужно добавить для переноса строки?", test: tests[2]},
   {body: "С помощью какого тега в HTML создаются ссылки?", test: tests[2]},
