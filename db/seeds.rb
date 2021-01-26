@@ -19,81 +19,78 @@ categories = Category.create!([
 ])
 
 tests = Test.create!([
-  {title: "Ruby", category_id: categories[0].id, user_id: users[0].id},
-  {title: "Rails", category_id: categories[0].id, user_id: users[0].id},
-  {title: "HTML", level: 1, category_id: categories[1].id, user_id: users[1].id}
+  {title: "Ruby", category: categories[0], user: users[0]},
+  {title: "Rails", category: categories[0], user: users[0]},
+  {title: "HTML", level: 1, category: categories[1], user: users[1]}
 ])
 
 #Ruby
-question = Question.create!(body: "В какому году появился Ruby? ", test_id: tests[0].id)
-Answer.create!([
-  {answer: "2000", question_id: question.id},
-  {answer: "1995", question_id: question.id, correct: true},
-  {answer: "1990", question_id: question.id}
-])
+questions = Question.create!([
+  {body: "В какому году появился Ruby? ", test: tests[0]},
+  {body: "Какое расширение у файлов Ruby?", test: tests[0]},
+  {body: "Что делает #unshift с массивом?", test: tests[0]}
+  ])
 
-question = Question.create!(body: "Какое расширение у файлов Ruby?", test_id: tests[0].id)
 Answer.create!([
-  {answer: "rb", question_id: question.id, correct: true},
-  {answer: "exe", question_id: question.id},
-  {answer: "c", question_id: question.id}
-])
+  {answer: "2000", question: questions[0]},
+  {answer: "1995", question: questions[0], correct: true},
+  {answer: "1990", question: questions[0]},
 
-question = Question.create!(body: "Что делает #unshift с массивом?", test_id: tests[0].id)
-Answer.create!([
-  {answer: "Добавляет элементы в начало массива", question_id: question.id, correct: true},
-  {answer: "Добавляет элементы в конец массива", question_id: question.id},
-  {answer: "Очищает массив", question_id: question.id}
+  {answer: "rb", question: questions[1], correct: true},
+  {answer: "exe", question: questions[1]},
+  {answer: "c", question: questions[1]},
+
+  {answer: "Добавляет элементы в начало массива", question: questions[2], correct: true},
+  {answer: "Добавляет элементы в конец массива", question: questions[2]},
+  {answer: "Очищает массив", question: questions[2]}
 ])
 
 #Rails
-question = Question.create!(body: "Как проверить статус миграций?", test_id: tests[1].id)
-Answer.create!([
-  {answer: "rails db:migrate", question_id: question.id},
-  {answer: "rails db:migrate:status", question_id: question.id, correct: true},
-  {answer: "rails db:status", question_id: question.id}
-])
+questions = Question.create!([
+  {body: "Как проверить статус миграций?", test: tests[1]},
+  {body: "С помощью какой команды можно откатить последнюю миграцию?", test: tests[1]},
+  {body: "Какая база данных стоит в Rails по умолчанию?", test: tests[1]}
+  ])
 
-question = Question.create!(body: "С помощью какой команды можно откатить последнюю миграцию?", test_id: tests[1].id)
 Answer.create!([
-  {answer: "rails db:reset", question_id: question.id},
-  {answer: "rails db:revert", question_id: question.id},
-  {answer: "rails db:rollback", question_id: question.id, correct: true}
-])
+  {answer: "rails db:migrate", question: questions[0]},
+  {answer: "rails db:migrate:status", question: questions[0], correct: true},
+  {answer: "rails db:status", question: questions[0]},
 
-question = Question.create!(body: "Какая база данных стоит в Rails по умолчанию?", test_id: tests[1].id)
-Answer.create!([
-  {answer: "PostgreSQL", question_id: question.id},
-  {answer: "MySQL", question_id: question.id},
-  {answer: "SQLite", question_id: question.id, correct: true}
+  {answer: "rails db:reset", question: questions[1]},
+  {answer: "rails db:revert", question: questions[1]},
+  {answer: "rails db:rollback", question: questions[1], correct: true},
+
+  {answer: "PostgreSQL", question: questions[2]},
+  {answer: "MySQL", question: questions[2]},
+  {answer: "SQLite", question: questions[2], correct: true}
 ])
 
 #HTML
-question = Question.create!(body: "Какой тег нужно добавить для переноса строки?", test_id: tests[2].id)
-Answer.create!([
-  {answer: "<br>", question_id: question.id, correct: true},
-  {answer: "<ol>", question_id: question.id},
-  {answer: "<div>", question_id: question.id}
-])
+questions = Question.create!([
+  {body: "Какой тег нужно добавить для переноса строки?", test: tests[2]},
+  {body: "С помощью какого тега в HTML создаются ссылки?", test: tests[2]},
+  {body: "Каким является следующий адрес ссылки: /page2.html", test: tests[2]}
+  ])
 
-question = Question.create!(body: "С помощью какого тега в HTML создаются ссылки?", test_id: tests[2].id)
 Answer.create!([
-  {answer: "<p>", question_id: question.id},
-  {answer: "<url>", question_id: question.id},
-  {answer: "<a>", question_id: question.id, correct: true}
-])
+  {answer: "<br>", question: questions[0], correct: true},
+  {answer: "<ol>", question: questions[0]},
+  {answer: "<div>", question: questions[0]},
 
-question = Question.create!(body: "Каким является следующий адрес ссылки: /page2.html", test_id: tests[2].id)
-Answer.create!([
-  {answer: "<Относительным>", question_id: question.id, correct: true},
-  {answer: "<Абсолютным>", question_id: question.id},
-  {answer: "<Нет верного ответа>", question_id: question.id}
+  {answer: "<p>", question: questions[1]},
+  {answer: "<url>", question: questions[1]},
+  {answer: "<a>", question: questions[1], correct: true},
+
+  {answer: "<Относительным>", question: questions[2], correct: true},
+  {answer: "<Абсолютным>", question: questions[2]},
+  {answer: "<Нет верного ответа>", question: questions[2]}
 ])
 
 
 
 Result.create!([
-  {user_id: users[0].id, test_id: tests[0].id},
-  {user_id: users[0].id, test_id: tests[1].id},
-  {user_id: users[1].id, test_id: tests[2].id}
+  {user: users[0], test: tests[0]},
+  {user: users[1], test: tests[0]},
+  {user: users[1], test: tests[2]}
 ])
