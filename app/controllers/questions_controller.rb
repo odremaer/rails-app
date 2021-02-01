@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.create!(body: question_params, test_id: params[:test_id])
     if @question.save
-      render plain: question.inspect
+      render plain: @question.inspect
     else
       render plain: "Вопрос не удалось сохранить"
     end
