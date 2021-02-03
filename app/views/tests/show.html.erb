@@ -1,0 +1,33 @@
+<p>
+  <strong>Title: <%=@test.title%></strong>
+</p>
+
+<p>
+  <strong>Level: <%= @test.level %></strong>
+</p>
+
+
+<strong>Вопросы теста:</strong>
+<table>
+  <tr>
+    <th>Question</th>
+    <th colspan="2">Actions</th>
+  </tr>
+
+  <% @test.questions.each do |question| %>
+  <tr>
+    <td><%= question.body %></td>
+    <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td><%= link_to "Delete",
+                    question_path(question),
+                    method: "delete",
+                    data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+  <% end %>
+
+</table>
+
+
+<p><%= link_to "New question", new_test_question_path(@test) %></p>
+<p><%= link_to "All tests", tests_path %></p>
