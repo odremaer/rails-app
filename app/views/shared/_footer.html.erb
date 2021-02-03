@@ -1,7 +1,7 @@
 <footer style="position: fixed; right: 0; bottom: 0">
-  <p><%= current_year %>г.</p>
+  <p><%= current_year %></p>
   <p>Автор: Евгений Болдин</p>
-  <p><a href=<%= github_url('odremaer', 'rails-app') %>>Проект</a></p>
-  <p><a href='http://thinknetica.com'</a>Учебный проект в онлайн-школе Thinknetica</p>
-  <p></p>
+
+  <p><%= github_url('odremaer', 'rails-app') %></p>
+  <p><%= link_to "Учебный проект в онлайн-школе", "http://thinknetica.com", rel: "nofollow", target: "_blank" %></p>
 </footer>
