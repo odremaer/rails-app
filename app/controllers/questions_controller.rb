@@ -9,22 +9,39 @@ class QuestionsController < ApplicationController
 
   def show; end
 
-  def new; end
+  def new
+    @test = Test.find(params[:test_id])
+    @question = Question.new
+  end
 
   def create
     @question = @test.questions.build(question_params)
     if @question.save
-      redirect_to test_questions_path(@test)
+      redirect_to @test
     else
-      render plain: 'Вопрос не удалось сохранить'
+      render :new
     end
   end
 
   def destroy
     @question.destroy
-    render plain: 'Вопрос успешно удален'
+    redirect_to tests_path
   end
 
+  def edit
+    @question = Question.find(params[:id])
+    @test = Test.find(@question.test_id)
+  end
+
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to tests_path
+    else
+      render :edit
+    end
+  end
   private
 
   def find_test
