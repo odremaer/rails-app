@@ -1,7 +1,7 @@
 module ApplicationHelper
 
  def current_year
-   "#{Time.zone.now.year}г. в городе #{Time.zone.name}"
+   "Current year - #{Time.current.year}"
  end
 
  def github_url(author, repo)
