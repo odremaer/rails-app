@@ -1,16 +1,14 @@
 <h1>Test <%= @test_passage.test.title %> completed</h1>
 
-<% success = (@test_passage.correct_questions * 100)/@test_passage.test.questions.count %>
-<% if success >= 85 %>
-    <p style="color: green">
-      Тест успешно пройден, процент правильных ответов - <%= success %>
-    </p>
+<% if test_passed?(@test_passage) %>
+  <p style="color: green">
+    Тест успешно пройден, процент успеха - <%= success_rate(@test_passage) %>%
+  </p>
 <% else %>
   <p style="color: red">
-    Тест не пройден, процент правильных ответов - <%= success %>
+    Тест не пройден, процент успеха - <%= success_rate(@test_passage) %>%
   </p>
 <% end %>
-
 
 
 <%= link_to 'All tests', tests_path %>
