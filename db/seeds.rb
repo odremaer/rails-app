@@ -86,11 +86,3 @@ Answer.create!([
   {answer: "<Абсолютным>", question: questions[2]},
   {answer: "<Нет верного ответа>", question: questions[2]}
 ])
-
-
-
-Result.create!([
-  {user: users[0], test: tests[0]},
-  {user: users[1], test: tests[0]},
-  {user: users[1], test: tests[2]}
-])
