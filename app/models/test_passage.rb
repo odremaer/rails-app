@@ -19,6 +19,10 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def amount_of_questions_in_test
+    self.test.questions.count
+  end
+
   private
 
   def before_validation_set_first_question
