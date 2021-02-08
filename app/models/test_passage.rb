@@ -24,13 +24,13 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    self.test.questions.pluck(:body).index(current_question_body)
+    self.test.questions.pluck(:body).index(current_question_body) + 1
   end
 
   def current_question_body
     self.current_question.body
   end
-  
+
   private
 
   def before_validation_set_first_question
