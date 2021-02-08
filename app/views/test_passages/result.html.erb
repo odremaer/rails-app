@@ -1,6 +1,6 @@
 <h1>Test <%= @test_passage.test.title %> completed</h1>
 
-<% if test_passed?(@test_passage) %>
+<% if test_passed_successfully?(@test_passage) %>
   <p style="color: green">
     Тест успешно пройден, процент успеха - <%= success_rate(@test_passage) %>%
   </p>

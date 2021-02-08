@@ -1,6 +1,6 @@
 module TestPassagesHelper
 
-  def test_passed?(test_passage)
+  def test_passed_successfully?(test_passage)
     if success_rate(test_passage) >= 85
       true
     else
