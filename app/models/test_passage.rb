@@ -1,7 +1,9 @@
 class TestPassage < ApplicationRecord
+  SUCCESS_BORDER = 85
+
   belongs_to :test
   belongs_to :user
-  belongs_to :current_question, class_name: "Question", optional: true
+  belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
 
@@ -12,9 +14,7 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
 
     save!
   end
@@ -28,7 +28,15 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_body
-    self.current_question.body
+    current_question.body
+  end
+
+  def successfully?
+    success_rate >= SUCCESS_BORDER
+  end
+
+  def success_rate
+    (self.correct_questions * 100) / amount_of_questions_in_test
   end
 
   private
@@ -38,11 +46,9 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    if answer_ids.nil?
-      false
-    else
-      correct_answers.ids.sort == answer_ids.map(&:to_i).sort
-    end
+    return false if answer_ids.nil?
+
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
   def correct_answers
