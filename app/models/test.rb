@@ -7,8 +7,8 @@ class Test < ApplicationRecord
   belongs_to :user
 
   has_many :questions, dependent: :destroy
-  has_many :results, dependent: :destroy
-  has_many :users, through: :results, dependent: :destroy
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages, dependent: :destroy
 
   validates :level, numericality: { greater_than_or_equal_to: 0 }
   validates :title, uniqueness: { scope: :level }
