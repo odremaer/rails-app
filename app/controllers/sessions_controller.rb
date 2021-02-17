@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       return redirect_to session[:previous_link] if session[:previous_link]
       redirect_to tests_path
     else
-      flash.now[:alert] = 'Are you a Guru? Verify your email and password'
+      flash.now[:notice] = 'Are you a Guru? Verify your email and password'
       render :new
     end
   end

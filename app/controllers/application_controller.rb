@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    redirect_to login_path, alert: 'Are you a Guru? Verify your email and password' unless current_user
+    redirect_to login_path, alert: 'You should login first' unless current_user
     session[:previous_link] = request.original_url
   end
 
