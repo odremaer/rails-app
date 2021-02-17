@@ -1,9 +1,13 @@
 class User < ApplicationRecord
+
   has_many :written_tests, class_name: 'Test', dependent: :destroy
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages, dependent: :destroy
 
-  validates :name, :password, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "wrong format" }
+  validates :email, uniqueness: true
+
+  has_secure_password
 
   def passed_tests(level)
     Test

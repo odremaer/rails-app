@@ -1,4 +1,9 @@
 module ApplicationHelper
+ def flash_message
+   flash.map do |key, msg|
+     content_tag :div, msg, class: "flash #{key}"
+   end.join.html_safe
+ end
 
  def current_year
    "Current year - #{Time.current.year}"

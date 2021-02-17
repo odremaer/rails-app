@@ -1,7 +1,7 @@
-<% if @question.errors.present? %>
-<h2><%= pluralize(@question.errors.count, 'error') %> detected:</h2>
+<% if resource.errors.present? %>
+<h2><%= pluralize(resource.errors.count, 'error') %> detected:</h2>
   <ul>
-    <% @question.errors.full_messages.each do |error| %>
+    <% resource.errors.full_messages.each do |error| %>
     <li><%= error %></li>
     <% end %>
   </ul>
