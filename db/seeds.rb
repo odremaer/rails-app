@@ -9,8 +9,8 @@
 
 
 users = User.create!([
-  {name: "john", password: "qwe"},
-  {name: "paul", password: "123"}
+  {email: "john@gmail.com", password_digest: BCrypt::Password.create('123')},
+  {email: "paul@gmail.com", password_digest: BCrypt::Password.create('qwe')}
 ])
 
 categories = Category.create!([
