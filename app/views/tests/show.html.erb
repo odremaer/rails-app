@@ -6,18 +6,21 @@
   <strong>Level: <%= @test.level %></strong>
 </p>
 
+<% if @test.without_questions? %>
+  <strong>Вопросов в тесте нет</strong>
+<% else %>
+  <strong>Вопросы теста:</strong>
+  <table>
+    <tr>
+      <th>Question</th>
+      <th colspan="3">Actions</th>
+    </tr>
 
-<strong>Вопросы теста:</strong>
-<table>
-  <tr>
-    <th>Question</th>
-    <th colspan="2">Actions</th>
-  </tr>
+    <%= render @test.questions %>
 
-  <%= render @test.questions %>
-
-</table>
-
+  </table>
+<% end %>
 
 <p><%= link_to "New question", new_test_question_path(@test) %></p>
+<p><%= link_to "Delete test", test_path(@test), method: "delete" %></p>
 <p><%= link_to "All tests", tests_path %></p>

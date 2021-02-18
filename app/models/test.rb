@@ -21,4 +21,8 @@ class Test < ApplicationRecord
     .order(id: :desc)
     .pluck(:title)
   end
+
+  def without_questions?
+    self.questions.empty?
+  end
 end
