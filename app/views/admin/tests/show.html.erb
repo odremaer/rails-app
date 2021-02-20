@@ -17,10 +17,9 @@
     </tr>
 
     <%= render @test.questions %>
-
+    
   </table>
 <% end %>
 
-<p><%= link_to "New question", new_test_question_path(@test) %></p>
-<p><%= link_to "Delete test", test_path(@test), method: "delete" %></p>
-<p><%= link_to "All tests", tests_path %></p>
+<p><%= link_to "New question", new_admin_test_question_path(@test) %></p>
+<p><%= link_to "All tests", admin_tests_path %></p>
