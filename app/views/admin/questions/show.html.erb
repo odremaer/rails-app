@@ -1,0 +1,15 @@
+<h1>Вопрос из теста #<%=@question.test_id%>:</h1>
+<p><%=@question.body%></p>
+
+<%= link_to 'New answer', new_admin_question_answer_path(@question) %>
+
+<% if @question.without_answers? %>
+  <p><b>Ответов не создано</b></p>
+<% else %>
+  <h2>Answers:</h2>
+  <ol>
+    <%= render @question.answers %>
+  </ol>
+<% end %>
+
+<%= link_to "Back", admin_test_path(@question.test) %>

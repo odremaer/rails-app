@@ -1,21 +1,16 @@
 class TestsController < ApplicationController
   before_action :authenticate_user!
-  
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+  before_action :find_test, only: %i[start]
 
-  def show
-    @test = Test.find(params[:id])
-  end
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
     @tests = Test.all
   end
 
   def start
-    @test = Test.find(params[:id])
-    @user = current_user
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
@@ -24,4 +19,7 @@ class TestsController < ApplicationController
     render plain: 'Запрашиваемого теста не найдено'
   end
 
+  def find_test
+    @test = Test.find(params[:id])
+  end
 end
