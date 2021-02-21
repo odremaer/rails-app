@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     if current_user.is_a?(Admin)
       admin_tests_path
     else
-      tests_path
+      super
     end
   end
 end
