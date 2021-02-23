@@ -266,3 +266,10 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+  test_passages:
+    gist:
+      success: <b>Gist успешно сохранен! </b><a href="%{url}" target="_blank" rel="nofollow">*клик*</a>
+      failure: "Во время сохранения gist произошла ошибка"
+  services:
+    gist_question_service:
+      question_description: "Вопрос о %{title} из ТестГуру"
