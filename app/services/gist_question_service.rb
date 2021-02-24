@@ -1,10 +1,7 @@
-require 'octokit'
-
 class GistQuestionService
-
-  include ActionView::Helpers::TranslationHelper
-
   ACCESS_TOKEN = Rails.application.credentials.github_access_token
+
+  attr_accessor :html_url, :id
 
   def initialize(question, client: nil)
     @question = question
@@ -13,14 +10,21 @@ class GistQuestionService
   end
 
   def call
-    @client.create_gist(gist_params)
+    resource = @client.create_gist(gist_params)
+    @html_url = resource.html_url
+    @id = resource.id
+    resource
+  end
+
+  def successful?
+    @html_url.present?
   end
 
   private
 
   def gist_params
     {
-      description: t('services.gist_question_service.question_description', title: @test.title),
+      description: I18n.t('services.gist_question_service.question_description', title: @test.title),
       files: {
         'test-guru-question.txt' => {
           content: gist_content
@@ -30,8 +34,6 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:answer)
-    content.join("\n")
+    [@question.body, *@question.answers.pluck(:answer)].join("\n")
   end
 end
