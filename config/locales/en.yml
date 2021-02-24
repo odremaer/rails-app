@@ -31,7 +31,7 @@
 
 en:
   gists:
-    success: <b>Gist was succesfully created - </b><a href="%{url}" target="_blank" rel="nofollow">*click*</a>
+    success: <b>Gist was succesfully created - </b><a href="%{url}" target="_blank" rel="nofollow">%{url_id}</a>
     failure: "An error occurred while saving gist"
   services:
     gist_question_service:

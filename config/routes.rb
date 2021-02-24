@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :test_passages do
     member do
       get :result
-      post :gist, controller: 'gists'
+      post :gist, to: 'gists#create'
     end
   end
 

@@ -268,7 +268,7 @@ ru:
     pm: вечера
   gists:
     gist:
-      success: <b>Gist успешно сохранен! </b><a href="%{url}" target="_blank" rel="nofollow">*клик*</a>
+      success: <b>Gist успешно сохранен! </b><a href="%{url}" target="_blank" rel="nofollow">%{url_id}</a>
       failure: "Во время сохранения gist произошла ошибка"
   services:
     gist_question_service:

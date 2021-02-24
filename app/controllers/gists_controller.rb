@@ -1,13 +1,13 @@
 class GistsController < ApplicationController
-  def gist
+  def create
     set_test_passage
     service = GistQuestionService.new(@test_passage.current_question)
 
     service.call
     gist_url = service.html_url
-    
+
     if service.successful?
-      flash[:notice] = I18n.t('gists.success', url: gist_url)
+      flash[:notice] = I18n.t('gists.success', url: gist_url, url_id: service.id)
       Gist.create!(gist_url: gist_url, user_email: current_user.email, question: @test_passage.current_question)
     else
       flash[:alert] = I18n.t('gists.failure')
@@ -19,6 +19,10 @@ class GistsController < ApplicationController
   private
 
   def set_test_passage
-    @test_passage = TestPassage.find(params[:id])
+    @test_passage = TestPassage.find(test_passage_id)
+  end
+
+  def test_passage_id
+    params[:id]
   end
 end
