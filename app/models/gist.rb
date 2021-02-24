@@ -4,4 +4,8 @@ class Gist < ApplicationRecord
   def question_body
     self.question.body
   end
+
+  def url_id
+    gist_url.split('/')[-1]
+  end
 end

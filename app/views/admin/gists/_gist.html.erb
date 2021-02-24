@@ -1,5 +1,5 @@
 <tr>
-  <td><a href=<%= admin_question_path(gist.question) %>><%= gist.question_body.truncate(25) %></a></td>
-  <td><a href=<%= gist.gist_url %>><%= gist.gist_url %></a></td>
+  <td><a href=<%= admin_question_path(gist.question) %>rel="nofollow" target="_blank"><%= gist.question_body.truncate(25) %></a></td>
+  <td><a href=<%= gist.gist_url %> rel="nofollow" target="_blank"><%= gist.url_id %></a></td>
   <td><%= gist.user_email %></td>
 </tr>
