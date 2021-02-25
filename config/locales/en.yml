@@ -36,3 +36,53 @@ en:
   services:
     gist_question_service:
       question_description: "A question about %{title} from TestGuru"
+  admin:
+    show: 'Show'
+    edit: 'Edit'
+    delete: 'Delete'
+    back: 'Back'
+    gists: 'GISTS'
+    tests:
+      new: 'New test'
+      create: 'Create new test'
+      edit: 'Edit %{test} test'
+      questions_amount: 'Amount of questions'
+      save: 'Save test'
+    questions:
+      new: 'New question'
+    answers:
+      new: 'New answer'
+      edit: 'Edit answer'
+      create: 'Create answers'
+      save: 'Save answer'
+  footer:
+    project: 'Project for online-school'
+    current_year: 'Current year - '
+  author: 'Author: Eugene Boldin'
+  authentication:
+    sign_up: 'Sign up'
+    login: 'Login'
+    welcome_for_signup: 'Welcome, future Guru'
+    welcome_for_users: Welcome, %{email} Guru
+    enter_gates: 'Enter the Guru Gates'
+    enter: 'Enter'
+    logout: 'Logout'
+  user:
+    gists:
+      new: 'Gist question'
+    test_passages:
+      next: 'Next question'
+      header: 'Passing the %{test} test'
+    tests:
+      start: 'Start'
+
+  test: 'Test'
+  questions_amount: 'Amount of questions'
+  all_tests: 'Tests'
+  title: 'Title'
+  level: 'Level'
+  question: 'Question'
+  action: 'Action'
+  answer: 'Answer'
+  answers: 'Answers'
+  correct: 'Correct'

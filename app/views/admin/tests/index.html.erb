@@ -1,15 +1,15 @@
-<h1>Tests</h1>
+<h1><%= I18n.t('all_tests') %></h1>
 
 <table>
   <tr>
-    <th>Test</th>
-    <th>Level</th>
-    <th>Amount of question</th>
-    <th colspan="2">Action</th>
+    <th><%= I18n.t('test') %></th>
+    <th><%= I18n.t('level') %></th>
+    <th><%= I18n.t('questions_amount') %></th>
+    <th colspan="2"><%= I18n.t('action') %></th>
   </tr>
 
   <%= render @tests %>
 
 </table>
-<p><%= link_to 'New test', new_admin_test_path %></p>
-<p><%= link_to 'GISTS', admin_gists_path  %></p>
+<p><%= link_to I18n.t('admin.tests.new'), new_admin_test_path %></p>
+<p><%= link_to I18n.t('admin.gists'), admin_gists_path  %></p>

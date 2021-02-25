@@ -273,3 +273,52 @@ ru:
   services:
     gist_question_service:
       question_description: "Вопрос о %{title} из ТестГуру"
+  admin:
+    show: 'Показать'
+    edit: 'Редактировать'
+    delete: 'Удалить'
+    back: 'Назад'
+    gists: 'ГИСТЫ'
+    tests:
+      new: 'Новый тест'
+      create: 'Создать новый тест'
+      edit: 'Редактировать %{test} тест'
+      save: 'Сохранить тест'
+    questions:
+      new: 'Новый вопрос'
+    answers:
+      new: 'Новый ответ'
+      edit: 'Редактировать ответ'
+      create: 'Создать ответ'
+      save: 'Сохранить ответ'
+  footer:
+    project: 'Учебный проект в онлайн-школе'
+    current_year: 'Текущий год - '
+  author: 'Автор: Евгений Болдин'
+  authentication:
+    sign_up: 'Регистрация'
+    login: 'Вход'
+    welcome_for_signup: 'Добро пожаловать, будущий Гуру'
+    welcome_for_users: 'Добро пожаловать, %{email} Гуру'
+    enter_gates: 'Войти в ворота Гуру'
+    enter: 'Войти'
+    logout: 'Выйти'
+  user:
+    gists:
+      new: 'Создать гист вопроса'
+    test_passages:
+      next: 'Следующий вопрос'
+      header: 'Прохождение %{test} теста'
+    tests:
+      start: 'Старт'
+  test: 'Тест'
+  questions_amount: 'Кол-во вопросов'
+  logout: Выйти
+  all_tests: 'Тесты'
+  title: 'Название'
+  level: 'Уровень'
+  question: 'Вопрос'
+  action: 'Действие'
+  answer: 'Ответ'
+  answers: 'Ответы'
+  correct: 'Правильный'
