@@ -19,10 +19,6 @@ class GistsController < ApplicationController
   private
 
   def set_test_passage
-    @test_passage = TestPassage.find(test_passage_id)
-  end
-
-  def test_passage_id
-    params[:id]
+    @test_passage = TestPassage.find(params[:test_passage_id])
   end
 end

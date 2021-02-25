@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   resources :test_passages do
     member do
       get :result
-      post :gist, to: 'gists#create'
     end
   end
+  
+  resources :gists, only: :create
 
   namespace :admin do
     resources :tests do
