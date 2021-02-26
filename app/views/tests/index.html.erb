@@ -1,11 +1,11 @@
-<h1>Tests</h1>
+<h1><%= I18n.t('all_tests') %></h1>
 
 <table>
   <tr>
-    <th>Test</th>
-    <th>Level</th>
-    <th>Amount of question</th>
-    <th>Action</th>
+    <th><%= I18n.t('test') %></th>
+    <th><%= I18n.t('level') %></th>
+    <th><%= I18n.t('questions_amount') %></th>
+    <th><%= I18n.t('action') %></th>
   </tr>
 
   <%= render @tests %>

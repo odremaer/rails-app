@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       get :result
     end
   end
+  
+  resources :gists, only: :create
 
   namespace :admin do
     resources :tests do
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
         resources :answers, shallow: true
       end
     end
+    resources :gists
   end
 
 end

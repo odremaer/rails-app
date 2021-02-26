@@ -47,6 +47,8 @@ group :development do
   gem 'spring'
 
   gem 'letter_opener'
+
+  gem "octokit", "~> 4.0"
 end
 
 group :test do
