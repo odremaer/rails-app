@@ -1,8 +1,12 @@
 <h1><%= I18n.t('all_tests') %></h1>
 
-<table>
+<table class="table">
   <tr>
-    <th><%= I18n.t('test') %></th>
+    <th class="sort-by-title pointer">
+      <%= I18n.t('test') %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
     <th><%= I18n.t('level') %></th>
     <th><%= I18n.t('questions_amount') %></th>
     <th><%= I18n.t('action') %></th>
@@ -11,3 +15,5 @@
   <%= render @tests %>
 
 </table>
+
+<%= javascript_pack_tag 'utilities/sorting' %>
