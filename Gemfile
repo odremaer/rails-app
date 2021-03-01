@@ -31,6 +31,7 @@ gem 'pg'
 
 gem 'devise', '~> 4.0'
 
+# with bootstrap 5.0.0.beta and newest one 5.0.0.beta2 octicons doesnt work
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'octicons_helper'
 gem 'jquery-rails'
@@ -53,6 +54,9 @@ group :development do
   gem 'letter_opener'
 
   gem "octokit", "~> 4.0"
+
+  # Fixed the error - 'Autoprefixer doesn’t support Node v8.10.0. Update it.' on my notebook
+  gem 'mini_racer'
 end
 
 group :test do
