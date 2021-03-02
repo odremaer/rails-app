@@ -21,5 +21,6 @@
   </table>
 <% end %>
 
+<p><%= link_to I18n.t('admin.tests.edit', test: @test.title), edit_admin_test_path(@test) %></p>
 <p><%= link_to I18n.t('admin.questions.new'), new_admin_test_question_path(@test) %></p>
 <p><%= link_to I18n.t('all_tests'), admin_tests_path %></p>
