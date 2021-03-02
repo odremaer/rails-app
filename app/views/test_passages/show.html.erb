@@ -1,4 +1,9 @@
 <h1><%= I18n.t('user.test_passages.header', test: @test_passage.test.title) %></h1>
+<%= content_tag :div,
+    '',
+    id: 'progress-line',
+    data: { questions_amount: @test_passage.amount_of_questions_in_test,
+            question_number: @test_passage.current_question_number} %>
 <b>
   Вопрос <%= @test_passage.current_question_number %>/
   <%= @test_passage.amount_of_questions_in_test %><br>
