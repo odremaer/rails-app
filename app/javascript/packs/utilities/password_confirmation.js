@@ -1,4 +1,4 @@
-class PasswordConfirmation {
+export default class PasswordConfirmation {
   constructor(form) {
     this.form = form
     this.password = form.elements.user_password
@@ -32,6 +32,3 @@ class PasswordConfirmation {
     })
   }
 }
-
-const reg_form = document.getElementById("new_user")
-if (reg_form) new PasswordConfirmation(reg_form)

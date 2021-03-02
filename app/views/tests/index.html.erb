@@ -16,4 +16,7 @@
 
 </table>
 
-<%= javascript_pack_tag 'utilities/sorting' %>
+<%= javascript_tag do %>
+  const control = document.querySelector('.sort-by-title')
+  new Sort(control)
+<% end %>
