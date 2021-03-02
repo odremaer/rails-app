@@ -63,5 +63,3 @@ class Sort {
     })
   }
 }
-const control = document.querySelector('.sort-by-title')
-if (control) new Sort(control)
