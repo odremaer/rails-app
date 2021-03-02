@@ -1,4 +1,4 @@
-class Sort {
+export default class Sort {
   constructor(control){
     this.control = control
 

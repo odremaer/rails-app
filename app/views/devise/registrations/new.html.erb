@@ -28,4 +28,7 @@
 
 <%= render "devise/shared/links" %>
 
-<%= javascript_pack_tag 'utilities/password_confirmation' %>
+<%= javascript_tag do %>
+  const reg_form = document.getElementById("new_user")
+  new PasswordConfirmation(reg_form)  
+<% end %>

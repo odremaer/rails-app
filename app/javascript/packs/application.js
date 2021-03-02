@@ -7,9 +7,12 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-
+// Sort
 import Sort from 'packs/utilities/sorting'
-// import 'packs/utilities/sorting'
+window.Sort = Sort
+// Password confirmation
+import PasswordConfirmation from 'packs/utilities/password_confirmation'
+window.PasswordConfirmation = PasswordConfirmation
 
 Rails.start()
 Turbolinks.start()
