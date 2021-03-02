@@ -15,11 +15,12 @@ Rails.application.routes.draw do
       get :result
     end
   end
-  
+
   resources :gists, only: :create
 
   namespace :admin do
     resources :tests do
+      patch :update_inline, on: :member
       resources :questions, shallow: true do
         resources :answers, shallow: true
       end
