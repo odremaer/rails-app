@@ -39,6 +39,12 @@ class TestPassage < ApplicationRecord
     (self.correct_questions * 100) / amount_of_questions_in_test
   end
 
+  def time_for_test
+    if self.test.time.present?
+      (self.created_at + self.test.time.to_i * 60) - Time.now
+    end
+  end
+
   private
 
   def before_validation_set_first_question
