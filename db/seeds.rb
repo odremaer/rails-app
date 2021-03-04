@@ -10,18 +10,19 @@
 
 users = User.create!([
   {email: "john@gmail.com", password: '123123', password_confirmation: '123123'},
-  {email: "paul@gmail.com", password: 'qweqwe', password_confirmation: 'qweqwe'}
+  {email: "paul@gmail.com", password: 'qweqwe', password_confirmation: 'qweqwe'},
+  {type: 'Admin', email: 'admin@admin.ru', password: '123123', password_confirmation: '123123'}
 ])
 
 categories = Category.create!([
-  {title: "beginner"},
-  {title: "intermediate"}
+  {title: "Backend"},
+  {title: "Frontend"}
 ])
 
 tests = Test.create!([
   {title: "Ruby", category: categories[0], user: users[0]},
   {title: "Rails", category: categories[0], user: users[0]},
-  {title: "HTML", level: 1, category: categories[1], user: users[1]}
+  {title: "HTML", level: 2, category: categories[1], user: users[1]}
 ])
 
 #Ruby
@@ -86,3 +87,10 @@ Answer.create!([
   {answer: "<Абсолютным>", question: questions[2]},
   {answer: "<Нет верного ответа>", question: questions[2]}
 ])
+
+# Badges
+Badge.create!([
+  {title: "All easy levels passed!", image_title: 'level_up.jpg', user: users[0], rule: 'Pass all easy levels(0-1)'},
+  {title: "Passed test with one attempt!", image_title: 'qr.png', user: users[0], rule: 'Pass test with only one attempt'},
+  {title: "Passed all tests in Backend category", image_title: 'fist.jpg', rule: 'Pass all tests with Backend category'}
+  ])
