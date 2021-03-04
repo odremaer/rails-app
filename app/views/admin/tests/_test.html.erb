@@ -5,6 +5,7 @@
   </td>
   <td class="align-middle"><%= test.level %></td>
   <td class="align-middle"><%= test.questions.count %></td>
+  <td class="align-middle"><%= test.category.title %></td>
   <td class="align-middle"><%= link_to I18n.t('admin.show'), admin_test_path(test) %></td>
   <td class="align-middle">
     <%= link_to I18n.t('admin.edit'),

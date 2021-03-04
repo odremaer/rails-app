@@ -7,6 +7,7 @@
     <th><%= I18n.t('test') %></th>
     <th><%= I18n.t('level') %></th>
     <th><%= I18n.t('questions_amount') %></th>
+    <th><%= I18n.t('category') %></th>
     <th colspan="2"><%= I18n.t('action') %></th>
   </tr>
 
@@ -15,3 +16,4 @@
 </table>
 <p><%= link_to I18n.t('admin.tests.new'), new_admin_test_path %></p>
 <p><%= link_to I18n.t('admin.gists'), admin_gists_path  %></p>
+<p><%= link_to I18n.t('badges.all'), admin_badges_path  %></p>

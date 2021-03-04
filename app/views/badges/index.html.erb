@@ -1,0 +1,12 @@
+<h1><%= I18n.t('all_badges') %></h1>
+
+<table class="table">
+  <tr>
+    <th><%= I18n.t('badges.existed') %></th>
+    <th><%= I18n.t('badges.how_to_achieve') %></th>
+  </tr>
+
+  <%= render @badges %>
+</table>
+
+<%= link_to I18n.t('admin.back'), tests_path %>

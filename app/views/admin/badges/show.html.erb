@@ -1,0 +1,16 @@
+<p>
+  <strong><%= I18n.t('title') %>: <%=@badge.title%></strong>
+</p>
+
+<p>
+  <strong><%= I18n.t('badges.image_title') %>: <%= @badge.image_title %></strong>
+  <%= image_tag("badges/#{@badge.image_title}", height: '32', width: '40') %>
+</p>
+
+<p>
+  <strong><%= I18n.t('badges.how_to_achieve') %>: <%= @badge.rule %></strong>
+</p>
+
+
+<p><%= link_to I18n.t('badges.all'), admin_badges_path %></p>
+<p><%= link_to I18n.t('all_tests'), admin_tests_path %></p>

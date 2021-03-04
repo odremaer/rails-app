@@ -1,0 +1,12 @@
+<h1><%= I18n.t('badges.user', user: current_user.email) %></h1>
+
+<table class="table">
+  <tr>
+    <th><%= I18n.t('badges.alll') %></th>
+    <th><%= I18n.t('badges.how_to_achieve') %></th>
+  </tr>
+
+  <%= render partial: 'user_badge', collection: @user_badges %>
+</table>
+
+<%= link_to I18n.t('admin.back'), tests_path %>
