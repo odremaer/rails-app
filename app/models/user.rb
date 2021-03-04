@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages, dependent: :destroy
 
+  has_many :badges, dependent: :destroy
+
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "wrong format" }
   validates :email, uniqueness: true
 

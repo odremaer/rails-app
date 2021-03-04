@@ -45,6 +45,12 @@ class TestPassage < ApplicationRecord
     end
   end
 
+  def give_badges(user)
+    user.badges.push(Badge.first_badge) if Badge.first_rule?(user)
+    user.badges.push(Badge.second_badge) if Badge.second_rule?(user, self.test)
+    user.badges.push(Badge.third_badge) if Badge.third_rule?(user, self.test)
+  end
+
   private
 
   def before_validation_set_first_question
