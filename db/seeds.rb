@@ -10,12 +10,13 @@
 
 users = User.create!([
   {email: "john@gmail.com", password: '123123', password_confirmation: '123123'},
-  {email: "paul@gmail.com", password: 'qweqwe', password_confirmation: 'qweqwe'}
+  {email: "paul@gmail.com", password: 'qweqwe', password_confirmation: 'qweqwe'},
+  {type: 'Admin', email: 'admin@admin.ru', password: '123123', password_confirmation: '123123'}
 ])
 
 categories = Category.create!([
-  {title: "beginner"},
-  {title: "intermediate"}
+  {title: "Backend"},
+  {title: "Frontend"}
 ])
 
 tests = Test.create!([
@@ -86,3 +87,10 @@ Answer.create!([
   {answer: "<Абсолютным>", question: questions[2]},
   {answer: "<Нет верного ответа>", question: questions[2]}
 ])
+
+# Badges
+Badge.create!([
+  {title: "All easy levels passed!", image_title: 'level_up.jpg', level: 0},
+  {title: "Passed test with one attempt!", image_title: 'qr.png', first_attempt: true},
+  {title: "Passed all tests in Backend category", image_title: 'fist.jpg', category: categories[0].title, level: 0}
+  ])
