@@ -10,7 +10,7 @@ class TestPassage < ApplicationRecord
   before_update :before_update_set_next_question
 
   def completed?
-    current_question.nil?
+    current_question.nil? || @test_passage.time_for_test <= 0
   end
 
   def accept!(answer_ids)
@@ -37,6 +37,12 @@ class TestPassage < ApplicationRecord
 
   def success_rate
     (self.correct_questions * 100) / amount_of_questions_in_test
+  end
+
+  def time_for_test
+    if self.test.time.present?
+      (self.created_at + self.test.time.to_i * 60) - Time.now
+    end
   end
 
   private
