@@ -16,9 +16,8 @@ function timer(timerElem){
       seconds = timeSeconds % 60
       if (timeSeconds <= 0) {
           clearInterval(timer);
-          let testPassageId = timerElem.dataset.testPassageId
-          result_link = "http://localhost:3000/test_passages/" + testPassageId + "/result"
-          window.location.replace(result_link);
+          let form = document.querySelector('form')
+          form.submit()
       } else {
           let strTimer = `${Math.trunc(hours)}:${Math.trunc(minutes)}:${seconds}`;
           timerElem.innerHTML = strTimer;
