@@ -10,7 +10,7 @@ class TestPassage < ApplicationRecord
   before_update :before_update_set_next_question
 
   def completed?
-    current_question.nil?
+    current_question.nil? || @test_passage.time_for_test <= 0
   end
 
   def accept!(answer_ids)
