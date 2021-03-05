@@ -1,0 +1,29 @@
+<%= form_with model: [:admin, @badge] do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :image_title %><br>
+    <%= form.collection_select :image_title, Badge::IMAGES, :to_s, :to_s %>
+  </p>
+
+  <p>
+    <%= form.label :category %><br>
+    <%= form.collection_select :category, Category.all_categories_title, :to_s, :to_s, prompt: true %>
+  </p>
+
+  <p>
+    <%= form.label :level %><br>
+    <%= form.number_field :level, placeholder: 'number' %>
+  </p>
+
+  <p>
+    <%= form.label :first_attempt %>
+    <%= form.check_box :first_attempt%>
+  </p>
+
+  <p><%= form.submit I18n.t('badges.save') %></p>
+<% end %>
