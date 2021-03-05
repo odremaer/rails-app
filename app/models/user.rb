@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages, dependent: :destroy
 
+  has_many :user_badges, dependent: :destroy
+  has_many :badges, through: :user_badges, dependent: :destroy
+
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "wrong format" }
   validates :email, uniqueness: true
 
@@ -19,6 +22,24 @@ class User < ApplicationRecord
     Test
       .joins(:test_passages)
       .where(level: level, test_passages: { user_id: id })
+  end
+
+  def successfully_passed_tests_by_level(level, test)
+    Test
+      .joins(:test_passages)
+      .where(level: level, test_passages: { user_id: id, correct_questions: test.questions_amount })
+  end
+
+  def successfully_passed_tests_by_category(category, test)
+    Test
+      .joins(:test_passages)
+      .where(category_id: category.id, test_passages: { user_id: id, correct_questions: test.questions_amount })
+  end
+
+  def successfully_passed_tests(test)
+    Test
+      .joins(:test_passages)
+      .where(test_passages: { user_id: id, correct_questions: test.questions_amount })
   end
 
   def test_passage(test)
