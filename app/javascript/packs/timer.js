@@ -3,7 +3,6 @@ document.addEventListener('turbolinks:load', () => {
   if (timerElem) {
     if (timerElem.dataset.time){
       timeSeconds = parseInt(timerElem.dataset.time)
-      console.log(timeSeconds)
       timer(timerElem)
     }
   }
