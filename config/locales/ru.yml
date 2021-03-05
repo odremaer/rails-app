@@ -322,3 +322,26 @@ ru:
   answer: 'Ответ'
   answers: 'Ответы'
   correct: 'Правильный'
+  caregory: 'Категория'
+  badges:
+    show: 'Показать бейдж'
+    all: 'Все бейджи'
+    existed: 'Существующие'
+    how_to_achieve: 'Как достичь'
+    show: 'Показать бейдж'
+    edit: 'Редактировать бейдж'
+    delete: 'Удалить бейдж'
+    image_title: 'Название картинки'
+    create: 'Создать бейдж'
+    save: 'Сохранить бейдж'
+    new: 'Создать новый бейдж'
+    edit: 'Редактировать бейдж'
+    user: '%{user} бейджи'
+    errors:
+      first_attempt_with_other_attrs: "Невозможно выбрать прохождение с первой попытки, задав категорию или уровень"
+      empty_attr: 'Нужно выбрать хотя бы один атрибут'
+    rules:
+      level_rule: "Пройти все тесты с %{level} уровнем"
+      category_rule: "Пройти все тесты с категорией %{category}"
+      category_and_level_rule: Пройти все тесты с категорией %{category} и уровнем %{level}"
+      first_attempt_rule: Пройти тест с первой попытки"
