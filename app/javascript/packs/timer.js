@@ -21,7 +21,6 @@ function timer(timerElem){
           window.location.replace(result_link);
       } else {
           let strTimer = `${Math.trunc(hours)}:${Math.trunc(minutes)}:${seconds}`;
-          console.log(strTimer)
           timerElem.innerHTML = strTimer;
       }
       --timeSeconds;
