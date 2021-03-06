@@ -27,19 +27,19 @@ class User < ApplicationRecord
   def successfully_passed_tests_by_level(level, test)
     Test
       .joins(:test_passages)
-      .where(level: level, test_passages: { user_id: id, correct_questions: test.questions_amount })
+      .where(level: level, test_passages: { user_id: id, correct_questions: test.questions.count })
   end
 
   def successfully_passed_tests_by_category(category, test)
     Test
       .joins(:test_passages)
-      .where(category_id: category.id, test_passages: { user_id: id, correct_questions: test.questions_amount })
+      .where(category_id: category.id, test_passages: { user_id: id, correct_questions: test.questions.count })
   end
 
   def successfully_passed_tests(test)
     Test
       .joins(:test_passages)
-      .where(test_passages: { user_id: id, correct_questions: test.questions_amount })
+      .where(test_passages: { user_id: id, correct_questions: test.questions.count })
   end
 
   def test_passage(test)

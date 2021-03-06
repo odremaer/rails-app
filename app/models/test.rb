@@ -29,16 +29,4 @@ class Test < ApplicationRecord
   def without_questions?
     self.questions.empty?
   end
-
-  def questions_amount
-    questions.count
-  end
-
-  def category_title
-    category.title
-  end
-
-  def category_id
-    category.id
-  end
 end
