@@ -5,7 +5,7 @@ class Badge < ApplicationRecord
   validate :validate_first_attempt_absence_if_category_or_level_picked
   validate :validate_if_attrs_are_empty
   validates :title, presence: true
-  IMAGES = Dir.children('app/assets/images/badges')
+  IMAGES = Dir.children(Rails.root.join('app', 'assets', 'images', 'badges').to_s)
 
   def contains_level_rule?
     level.present?
