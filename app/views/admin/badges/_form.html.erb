@@ -22,3 +22,8 @@
 
   <p><%= form.submit t('badges.save') %></p>
 <% end %>
+
+
+<%= javascript_tag do %>
+  new BadgeFormHider()
+<% end %>

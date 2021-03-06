@@ -16,7 +16,8 @@ window.PasswordConfirmation = PasswordConfirmation
 
 import 'packs/utilities/form_inline'
 import 'packs/progress_bar'
-import 'packs/badge_form_hider'
+import BadgeFormHider from 'packs/badge_form_hider'
+window.BadgeFormHider = BadgeFormHider
 
 Rails.start()
 Turbolinks.start()
