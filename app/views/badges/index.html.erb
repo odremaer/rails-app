@@ -1,23 +1,23 @@
-<h1><%= I18n.t('badges.all') %></h1>
+<h1><%= t('badges.all') %></h1>
 
 <table class="table">
   <tr>
-    <th><%= I18n.t('badges.existed') %></th>
-    <th><%= I18n.t('badges.how_to_achieve') %></th>
+    <th><%= t('badges.existed') %></th>
+    <th><%= t('badges.how_to_achieve') %></th>
   </tr>
 
   <%= render @badges %>
 </table>
 
-<h1><%= I18n.t('badges.user', user: current_user.email) %></h1>
+<h1><%= t('badges.user', user: current_user.email) %></h1>
 
 <table class="table">
   <tr>
-    <th><%= I18n.t('badges.all') %></th>
-    <th><%= I18n.t('badges.how_to_achieve') %></th>
+    <th><%= t('badges.all') %></th>
+    <th><%= t('badges.how_to_achieve') %></th>
   </tr>
 
   <%= render partial: 'user_badge', collection: @user_badges %>
 </table>
 
-<%= link_to I18n.t('admin.back'), tests_path %>
+<%= link_to t('admin.back'), tests_path %>

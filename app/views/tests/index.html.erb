@@ -1,23 +1,23 @@
-<h1><%= I18n.t('all_tests') %></h1>
+<h1><%= t('all_tests') %></h1>
 
 <table class="table">
   <tr>
     <th class="sort-by-title pointer">
-      <%= I18n.t('test') %>
+      <%= t('test') %>
       <%= octicon 'arrow-up', class: 'text-success hide' %>
       <%= octicon 'arrow-down', class: 'text-success hide' %>
     </th>
-    <th><%= I18n.t('level') %></th>
-    <th><%= I18n.t('questions_amount') %></th>
-    <th><%= I18n.t('category') %></th>
-    <th><%= I18n.t('action') %></th>
+    <th><%= t('level') %></th>
+    <th><%= t('questions_amount') %></th>
+    <th><%= t('category') %></th>
+    <th><%= t('action') %></th>
   </tr>
 
   <%= render @tests %>
 
 </table>
 
-<%= link_to I18n.t('badges.all'), badges_path %>
+<%= link_to t('badges.all'), badges_path %>
 
 <%= javascript_tag do %>
   const control = document.querySelector('.sort-by-title')

@@ -1,13 +1,13 @@
 <p>
-  <strong><%= I18n.t('title') %>: <%=@badge.title%></strong>
+  <strong><%= t('title') %>: <%=@badge.title%></strong>
 </p>
 
 <p>
-  <strong><%= I18n.t('badges.image_title') %>: <%= @badge.image_title %></strong>
+  <strong><%= t('badges.image_title') %>: <%= @badge.image_title %></strong>
   <%= image_tag("badges/#{@badge.image_title}", height: '32', width: '40') %>
 </p>
 
 
 
-<%= link_to I18n.t('badges.all'), admin_badges_path %>
-<p><%= link_to I18n.t('all_tests'), admin_tests_path %></p>
+<%= link_to t('badges.all'), admin_badges_path %>
+<p><%= link_to t('all_tests'), admin_tests_path %></p>
