@@ -1,10 +1,11 @@
 module BadgesHelper
   def create_rule(badge)
-    if badge.contains_category_rule?
+    case badge.rule_type
+    when 'category'
       content_tag :td, I18n.t('badges.rules.category_rule', category: badge.rule_parameter)
-    elsif badge.contains_level_rule?
+    when 'level'
       content_tag :td, I18n.t('badges.rules.level_rule', level: badge.rule_parameter)
-    elsif badge.contains_first_attempt_rule?
+    when 'first attempt'
       content_tag :td, I18n.t('badges.rules.first_attempt_rule')
     end
   end
