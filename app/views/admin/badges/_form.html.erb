@@ -11,18 +11,13 @@
   </p>
 
   <p>
-    <%= form.label :category %><br>
-    <%= form.collection_select :category, Category.all, :id, :title, prompt: true %>
+    <%= form.label :rule_type %>
+    <%= form.collection_select :rule_type, Badge::RULE_TYPES, :to_s, :to_s %>
   </p>
 
-  <p>
-    <%= form.label :level %><br>
-    <%= form.number_field :level, placeholder: 'number' %>
-  </p>
-
-  <p>
-    <%= form.label :first_attempt %>
-    <%= form.check_box :first_attempt%>
+  <p class="rule-parameter">
+    <%= form.label :rule_parameter %><br>
+    <%= form.text_field :rule_parameter, placeholder: 'enter rule parameter' %>
   </p>
 
   <p><%= form.submit t('badges.save') %></p>
