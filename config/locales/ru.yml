@@ -340,6 +340,8 @@ ru:
     errors:
       first_attempt_with_other_attrs: "Невозможно выбрать прохождение с первой попытки, задав категорию или уровень"
       empty_attr: 'Нужно выбрать параметр для правила'
+      rule_param_should_be_number: 'Когда тип правила - уровень, параметр должен быть числом'
+      category_presence: 'Категории не существует'
     rules:
       level_rule: "Пройти все тесты с %{level} уровнем"
       category_rule: "Пройти все тесты с категорией %{category}"

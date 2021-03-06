@@ -104,6 +104,8 @@ en:
     errors:
       first_attempt_with_other_attrs: "You can't choose other attributes when pick first attempt"
       empty_attr: 'You have to pick rule parameter'
+      rule_param_should_be_number: 'When rule type is level - rule parameter should be number'
+      category_presence: 'Category dont exist'
     rules:
       level_rule: "Pass all tests with level %{level}"
       category_rule: "Pass all tests with category %{category}"
