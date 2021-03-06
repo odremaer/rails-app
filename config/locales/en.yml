@@ -103,9 +103,8 @@ en:
     user: '%{user} badges'
     errors:
       first_attempt_with_other_attrs: "You can't choose other attributes when pick first attempt"
-      empty_attr: 'You have to pick at least one attribute'
+      empty_attr: 'You have to pick rule parameter'
     rules:
       level_rule: "Pass all tests with level %{level}"
       category_rule: "Pass all tests with category %{category}"
-      category_and_level_rule: "Pass all tests with category %{category} and level %{level}"
       first_attempt_rule: "Pass test with first attempt"
