@@ -1,3 +1,7 @@
+require 'rules/badge_category_rule_service'
+require 'rules/badge_first_attempt_rule_service'
+require 'rules/badge_level_rule_service'
+
 class BadgesDistributorService
   def initialize(user, test)
     @user = user
@@ -9,31 +13,38 @@ class BadgesDistributorService
   end
 
   def distribute
-    if @test_category.present? && @test_level.present?
-      if BadgeCategoryAndLevelRuleService.call(@user, @test)
-        badge = Badge.where(category: @test_category, level: @test_level)
-        @user.badges.push(badge)
-      end
-    else
-      if @test_category.present?
-        if BadgeCategoryRuleService.call(@user, @test)
-          badge = Badge.where(category: @test_category)
-          @user.badges.push(badge)
-        end
-      end
+    category_rule = BadgeCategoryRuleService.new(@user, @test)
+    level_rule = BadgeLevelRuleService.new(@user, @test)
+    first_attempt_rule = BadgeFirstAttemptRuleService.new(@user, @test)
 
-      if @test_level.present?
-        if BadgeLevelRuleService.call(@user, @test)
-          badge = Badge.where(level: @test_level)
-          @user.badges.push(badge)
-        end
-      end
+
+    if category_rule.performed?
+      badge = find_badge_for_category_rule(@test_category)
+      @user.badges.push(badge)
     end
 
-    if BadgeFirstAttemptRuleService.call(@user, @test)
-      badge = Badge.where(first_attempt: true)
+    if level_rule.performed?
+      badge = find_badge_for_level_rule(@test_level)
+      @user.badges.push(badge)
+    end
+
+    if first_attempt_rule.performed?
+      badge = find_badge_for_first_attempt_rule
       @user.badges.push(badge)
     end
   end
 
+  private
+
+  def find_badge_for_category_rule(test_category)
+    Badge.where(rule_type: 'category', rule_parameter: test_category)
+  end
+
+  def find_badge_for_level_rule(test_level)
+    Badge.where(rule_type: 'level', rule_parameter: test_level)
+  end
+
+  def find_badge_for_first_attempt_rule
+    Badge.where(rule_type: 'first attempt')
+  end
 end
