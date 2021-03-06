@@ -90,7 +90,7 @@ Answer.create!([
 
 # Badges
 Badge.create!([
-  {title: "All easy levels passed!", image_title: 'level_up.jpg', level: 0},
-  {title: "Passed test with one attempt!", image_title: 'qr.png', first_attempt: true},
-  {title: "Passed all tests in Backend category", image_title: 'fist.jpg', category: categories[0].title, level: 0}
+  {title: "All easy levels passed!", image_title: 'level_up.jpg', rule_type: Badge::RULE_TYPES[1], rule_parameter: '0'},
+  {title: "Passed test with one attempt!", image_title: 'qr.png', rule_type: Badge::RULE_TYPES[2]},
+  {title: "Passed all tests in Backend category", image_title: 'fist.jpg', rule_type: Badge::RULE_TYPES[0], rule_parameter: 'Backend'}
   ])
