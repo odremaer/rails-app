@@ -6,6 +6,6 @@
       <%= b.label %>
     </p>
   <% end %>
-  <p><%= link_to I18n.t('user.gists.new'),  gists_path(test_passage_id: @test_passage.id), method: :post %></p>
-  <p><%= form.submit I18n.t('user.test_passages.next') %></p>
+  <p><%= link_to t('user.gists.new'),  gists_path(test_passage_id: @test_passage.id), method: :post %></p>
+  <p><%= form.submit t('user.test_passages.next') %></p>
 <% end %>

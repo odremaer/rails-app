@@ -1,17 +1,18 @@
-<h1><%= I18n.t('all_tests') %></h1>
+<h1><%= t('all_tests') %></h1>
 
 <%= render 'shared/errors', resource: @test %>
 
 <table class="table">
   <tr>
-    <th><%= I18n.t('test') %></th>
-    <th><%= I18n.t('level') %></th>
-    <th><%= I18n.t('questions_amount') %></th>
-    <th colspan="2"><%= I18n.t('action') %></th>
+    <th><%= t('test') %></th>
+    <th><%= t('level') %></th>
+    <th><%= t('questions_amount') %></th>
+    <th colspan="2"><%= t('action') %></th>
   </tr>
 
   <%= render @tests %>
 
 </table>
-<p><%= link_to I18n.t('admin.tests.new'), new_admin_test_path %></p>
-<p><%= link_to I18n.t('admin.gists'), admin_gists_path  %></p>
+<p><%= link_to t('admin.tests.new'), new_admin_test_path %></p>
+<p><%= link_to t('admin.gists'), admin_gists_path  %></p>
+<%= link_to t('badges.all'), admin_badges_path %>

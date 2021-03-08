@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
   <%= link_to "TestGuru", tests_path, class: "nav user" %>
-  <p class="nav user"><%= I18n.t('authentication.welcome_for_users', email: current_user.email) %></p>
-  <%= link_to I18n.t('authentication.logout'), destroy_user_session_path, method: :delete, class: "nav user" %>
+  <p class="nav user"><%= t('authentication.welcome_for_users', email: current_user.email) %></p>
+  <%= link_to t('authentication.logout'), destroy_user_session_path, method: :delete, class: "nav user" %>
 <% else %>
-  <p class="nav user"><%= I18n.t('authentication.welcome_for_signup') %></p>
-  <%= link_to I18n.t('authentication.sign_up'), new_user_registration_path, class: "nav user" %>
-  <%= link_to I18n.t('authentication.login'), new_user_session_path, class: "nav user" %>
+  <p class="nav user"><%= t('authentication.welcome_for_signup') %></p>
+  <%= link_to t('authentication.sign_up'), new_user_registration_path, class: "nav user" %>
+  <%= link_to t('authentication.login'), new_user_session_path, class: "nav user" %>
 <% end %>

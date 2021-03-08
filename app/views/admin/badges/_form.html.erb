@@ -1,0 +1,29 @@
+<%= form_with model: [:admin, @badge] do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :image_title %><br>
+    <%= form.collection_select :image_title, Badge::IMAGES, :to_s, :to_s %>
+  </p>
+
+  <p>
+    <%= form.label :rule_type %>
+    <%= form.collection_select :rule_type, Badge::RULE_TYPES, :to_s, :to_s %>
+  </p>
+
+  <p class="rule-parameter">
+    <%= form.label :rule_parameter %><br>
+    <%= form.text_field :rule_parameter, placeholder: 'enter rule parameter' %>
+  </p>
+
+  <p><%= form.submit t('badges.save') %></p>
+<% end %>
+
+
+<%= javascript_tag do %>
+  new BadgeFormHider()
+<% end %>

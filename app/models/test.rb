@@ -22,6 +22,10 @@ class Test < ApplicationRecord
     .pluck(:title)
   end
 
+  def self.certain_level(level)
+    Test.where(level: level)
+  end
+
   def without_questions?
     self.questions.empty?
   end

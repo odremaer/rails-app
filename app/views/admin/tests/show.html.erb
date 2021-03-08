@@ -1,9 +1,9 @@
 <p>
-  <strong><%= I18n.t('title') %>: <%=@test.title%></strong>
+  <strong><%= t('title') %>: <%=@test.title%></strong>
 </p>
 
 <p>
-  <strong><%= I18n.t('level') %>: <%= @test.level %></strong>
+  <strong><%= t('level') %>: <%= @test.level %></strong>
 </p>
 
 <% if @test.without_questions? %>
@@ -12,8 +12,8 @@
   <strong>Вопросы теста:</strong>
   <table>
     <tr>
-      <th><%= I18n.t('question') %></th>
-      <th colspan="3"><%= I18n.t('action') %></th>
+      <th><%= t('question') %></th>
+      <th colspan="3"><%= t('action') %></th>
     </tr>
 
     <%= render @test.questions %>
@@ -21,6 +21,6 @@
   </table>
 <% end %>
 
-<p><%= link_to I18n.t('admin.tests.edit', test: @test.title), edit_admin_test_path(@test) %></p>
-<p><%= link_to I18n.t('admin.questions.new'), new_admin_test_question_path(@test) %></p>
-<p><%= link_to I18n.t('all_tests'), admin_tests_path %></p>
+<p><%= link_to t('admin.tests.edit', test: @test.title), edit_admin_test_path(@test) %></p>
+<p><%= link_to t('admin.questions.new'), new_admin_test_question_path(@test) %></p>
+<p><%= link_to t('all_tests'), admin_tests_path %></p>
