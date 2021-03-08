@@ -1,6 +1,11 @@
 <h1><%= t('user.test_passages.header', test: @test_passage.test.title) %></h1>
 <%= content_tag :div,
     '',
+    id: 'timer',
+    data: { time: @test_passage.time_for_test,
+            test_passage_id: @test_passage.id} %>
+<%= content_tag :div,
+    '',
     id: 'progress-line',
     data: { questions_amount: @test_passage.amount_of_questions_in_test,
             question_number: @test_passage.current_question_number} %>
